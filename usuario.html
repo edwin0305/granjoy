@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuario - Página de Actividad Comercial</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="usuario.html">Usuario</a></li>
+            <li><a href="bodega.html">Bodega</a></li>
+        </ul>
+    </nav>
+
+    <section id="usuario">
+        <h1>Usuario</h1>
+        <form class="formulario">
+            <label for="nombres">Nombres:</label>
+            <input type="text" id="nombres" name="nombres" required>
+
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos" required>
+
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion" required>
+
+            <label for="especificaciones">Especificaciones del Lote:</label>
+            <textarea id="especificaciones" name="especificaciones" required></textarea>
+
+            <label for="actividad">Actividad Comercial:</label>
+            <select id="actividad" name="actividad" required>
+                <option value="avicola">Avícola</option>
+                <option value="bovino">Bovino</option>
+                <option value="porcino">Porcino</option>
+                <option value="equino">Equino</option>
+                <option value="caprino">Caprino</option>
+            </select>
+
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" name="edad" required>
+
+            <label for="cedula">Número de Cédula:</label>
+            <input type="number" id="cedula" name="cedula" required>
+
+            <label for="telefono">Teléfonos:</label>
+            <input type="number" id="telefono" name="telefono" required>
+
+            <label for="departamento">Departamento:</label>
+            <input type="text" id="departamento" name="departamento" required>
+
+            <label for="municipio">Municipio:</label>
+            <input type="text" id="municipio" name="municipio" required>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+</body>
+</html>

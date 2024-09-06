@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad Comercial</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="usuario.html">Usuario</a></li>
+            <li><a href="bodega.html">Bodega</a></li>
+        </ul>
+    </nav>
+
+    <section id="actividad">
+        <h1 id="titulo">Actividad Comercial</h1>
+        <p id="descripcion">Bienvenido a nuestra página de actividad comercial.</p>
+        <div class="activity-links">
+            <div class="activity-box"><a href="?tipo=avicola">Avícola</a></div>
+            <div class="activity-box"><a href="?tipo=bovino">Bovino</a></div>
+            <div class="activity-box"><a href="?tipo=porcino">Porcino</a></div>
+            <div class="activity-box"><a href="?tipo=equino">Equino</a></div>
+            <div class="activity-box"><a href="?tipo=caprino">Caprino</a></div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const tipo = urlParams.get('tipo');
+            const titleElement = document.getElementById('titulo');
+            const descriptionElement = document.getElementById('descripcion');
+            const activityLinksElement = document.querySelector('.activity-links');
+
+            const descriptions = {
+                avicola: {
+                    title: 'Avícola',
+                    text: 'La gestión avícola en Granjoy se enfoca en la cría y manejo de aves como gallinas de corral, gallinas campesinas, pavos, patos y codornices. Incluye el control de la cantidad de aves, su alimentación, estado de salud, semanas de nacimiento y producción. La finalidad es maximizar la producción de carne y huevos de manera eficiente y sostenible.'
+                },
+                bovino: {
+                    title: 'Bovino',
+                    text: 'La gestión bovina en Granjoy cubre el manejo y cría de ganado bovino, que incluye vacas lecheras y ganado de carne. Las actividades principales incluyen la monitorización del crecimiento, el control de la alimentación, la salud del ganado, el manejo de la reproducción y la producción de leche o carne. El objetivo es asegurar la calidad y productividad del ganado.'
+                },
+                porcino: {
+                    title: 'Porcino',
+                    text: 'La gestión porcina en Granjoy se centra en la cría y manejo de cerdos. Las tareas clave incluyen la gestión de semanas de nacimiento, el control del peso, el estado de salud y el tipo de alimentación de los cerdos. También se gestiona la producción de carne y se asegura el bienestar de los animales para una producción eficiente y sostenible.'
+                },
+                equino: {
+                    title: 'Equino',
+                    text: 'La gestión equina en Granjoy abarca el cuidado y manejo de caballos. Incluye actividades como la alimentación, la salud, la reproducción y el entrenamiento de los caballos. Se pone especial atención en el bienestar de los animales para asegurar su buen estado físico y rendimiento, ya sea para fines deportivos, recreativos o de trabajo.'
+                },
+                caprino: {
+                    title: 'Caprino',
+                    text: 'La gestión caprina en Granjoy se enfoca en la cría y manejo de cabras, tanto para la producción de leche como de carne. Las actividades incluyen el control de la alimentación, el estado de salud, la reproducción y la producción de leche o carne. El objetivo es maximizar la productividad y mantener la salud y bienestar de los animales.'
+                }
+            };
+
+            if (descriptions[tipo]) {
+                const { title, text } = descriptions[tipo];
+                titleElement.textContent = title;
+                descriptionElement.innerHTML = `<div class="description-box">${text}</div>`;
+                activityLinksElement.style.display = 'none'; // Ocultar los enlaces cuando se muestra la descripción
+            } else {
+                titleElement.textContent = 'Actividad Comercial';
+                descriptionElement.textContent = 'Bienvenido a nuestra página de actividad comercial.';
+                activityLinksElement.style.display = 'flex'; // Mostrar los enlaces en la página de inicio
+            }
+        });
+    </script>
+</body>
+</html>

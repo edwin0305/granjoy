@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bodega - Página de Actividad Comercial</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="usuario.html">Usuario</a></li>
+            <li><a href="bodega.html">Bodega</a></li>
+        </ul>
+    </nav>
+
+    <section id="bodega">
+        <h1>Bodega</h1>
+        <div id="opciones">
+            <button onclick="mostrarOpciones('registrar')">Registrar Productos</button>
+            <button onclick="mostrarOpciones('consultar')">Consultar Productos</button>
+        </div>
+        <div id="registrarOpciones" style="display: none;">
+            <h2>Registrar Productos</h2>
+            <button onclick="mostrarFormulario('medicamento')">Agregar Medicamento</button>
+            <button onclick="mostrarFormulario('alimento')">Agregar Alimento</button>
+            <select id="tipoAnimal">
+                <option value="avicola">Avícola</option>
+                <option value="bovino">Bovino</option>
+                <option value="porcino">Porcino</option>
+                <option value="equino">Equino</option>
+                <option value="caprino">Caprino</option>
+            </select>
+        </div>
+        <div id="consultarOpciones" style="display: none;">
+            <h2>Consultar Productos</h2>
+            <button onclick="consultarProductos()">Consultar</button>
+            <select id="tipoConsulta">
+                <option value="avicola">Avícola</option>
+                <option value="bovino">Bovino</option>
+                <option value="porcino">Porcino</option>
+                <option value="equino">Equino</option>
+                <option value="caprino">Caprino</option>
+            </select>
+        </div>
+        <div id="formulario" style="display: none;">
+            <form>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" required>
+
+                <button type="submit">Aceptar</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        function mostrarOpciones(opcion) {
+            document.getElementById('registrarOpciones').style.display = opcion === 'registrar' ? 'block' : 'none';
+            document.getElementById('consultarOpciones').style.display = opcion === 'consultar' ? 'block' : 'none';
+            document.getElementById('formulario').style.display = 'none';
+        }
+
+        function mostrarFormulario(tipo) {
+            document.getElementById('formulario').style.display = 'block';
+            // Aquí podrías hacer algo con el tipo seleccionado, como enviarlo al servidor o mostrar opciones específicas para cada tipo
+        }
+
+        function consultarProductos() {
+            // Aquí podrías implementar la lógica para consultar los productos del tipo seleccionado
+            alert('Se consultaron los productos del tipo seleccionado.');
+        }
+    </script>
+</body>
+</html>
